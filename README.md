@@ -23,6 +23,19 @@ Hệ thống xử lý theo **2 luồng** dựa trên Intent Classification:
 
 ---
 
+## 🖥️ Demo Giao diện
+
+| Chat + Dashboard | Form nhập liệu 8 features |
+|---|---|
+| ![Interface 1](Website_interface.jpg) | ![Interface 2](Website_interface2.jpg) |
+
+Giao diện gồm 3 vùng chính:
+- **Trái**: Lịch sử hội thoại, tìm kiếm cuộc trò chuyện
+- **Giữa**: Chat với Fluxmare — nhập câu hỏi tự do hoặc dùng **Form 8 features** để nhập thông số chuyến đi
+- **Phải**: Dashboard thời gian thực — kết quả dự đoán (kg/s), thông tin tàu, biểu đồ 7 thông số đầu vào, phân tích hồ sơ
+
+---
+
 ## 📊 Kết quả ML — Benchmark 11 mô hình (~174.000 bản ghi, 3 tàu)
 
 | Nhóm | Mô hình | R² TB | MAE (kg/s) | RMSE (kg/s) | Std R² |
@@ -80,7 +93,7 @@ Hệ thống xử lý theo **2 luồng** dựa trên Intent Classification:
 
 - **Benchmark có hệ thống** — so sánh 11 mô hình trên 5 nhóm kiến trúc, không chỉ dùng 1-2 mô hình như đa số nghiên cứu liên quan
 - **Ổn định đa tàu** — Stacked Ensemble duy trì R² > 0,93 trên cả 3 tàu với cấu hình động lực hoàn toàn khác nhau
-- **RAG với ngưỡng chất lượng** — chỉ inject context similarity ≥ 0.8, giảm hallucination LLM trong domain chuyên ngành
+- **RAG với ngưỡng chất lượng** — chỉ inject context similarity ≥ 0.7, giảm hallucination LLM trong domain chuyên ngành
 - **Automated Evaluation** — 9 metrics tự động + T-test + Cohen's d, xuất Excel để phục vụ báo cáo khoa học
 - **End-to-end pipeline** — từ nhập liệu text tự nhiên đến dashboard trực quan và giải thích tiếng Việt
 
