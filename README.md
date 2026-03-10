@@ -100,6 +100,14 @@ User Input (text tự nhiên / form 7 features)
 
 ---
 
+## 📓 Training Notebook
+
+Toàn bộ quá trình huấn luyện và benchmark 11 mô hình ML có thể xem tại:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PUn6jtCQY9mNzvFyDioRM4AH0RlD9i3l?usp=sharing)
+
+---
+
 ## 🚀 Chạy nhanh
 
 ```bash
