@@ -14,7 +14,7 @@ Tối ưu hóa nhiên liệu tàu thủy là bài toán phức tạp, ảnh hư�
 
 ## 🏗️ Kiến trúc hệ thống
 
-![System Pipeline](pipeline_ml_ai.drawio.png)
+![System Pipeline](pipeline%20ml_ai.drawio.png)
 
 Hệ thống xử lý theo **2 luồng** dựa trên Intent Classification:
 
