@@ -14,26 +14,12 @@ Tối ưu hóa nhiên liệu tàu thủy là bài toán phức tạp, ảnh hư�
 
 ## 🏗️ Kiến trúc hệ thống
 
-```
-User Input (text tự nhiên / form 7 features)
-              │
-   Parameter Extraction (regex NLP)
-              │
-     ┌────────┴────────┐
-  Đủ params         Thiếu / Câu hỏi chung
-     │                 │
-  ML Model           RAG Pipeline
-  (Stacked           → Embedding 768-dim
-  Ensemble)          → Cosine Similarity ≥ 0.7
-  → kg/s             → Top-3 chunks
-     │                 │
-     └────────┬────────┘
-              ▼
-         LLM Local (Qwen 2.5 / Llama 3.1)
-         → Giải thích tiếng Việt
-              ▼
-       Dashboard + Chat Response
-```
+![System Pipeline](pipeline_ml_ai.drawio.png)
+
+Hệ thống xử lý theo **2 luồng** dựa trên Intent Classification:
+
+- **Luồng RAG** (trái): Câu hỏi chung → Embedding query (Nomic Embed-text 1.5, 768-dim) → Semantic search trên Supabase vector DB (Cosine similarity) → Nếu similarity ≥ 0.8: Retrieved FAQ → LLM sinh Final Response
+- **Luồng Prediction** (phải): Câu hỏi có thông số → Kiểm tra đủ features (Speed, Wind, Wave, ...) → Chọn model theo loại tàu (Poseidon / Triton / Ceto) → **Stacked Ensemble** (XGBoost + LightGBM + CatBoost) dự đoán mức tiêu hao (kg/s) → LLM giải thích kết quả bằng tiếng Việt
 
 ---
 
